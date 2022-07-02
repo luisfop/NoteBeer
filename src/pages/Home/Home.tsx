@@ -13,9 +13,7 @@ const Home = () => {
                     <Grid item className={classes.form} xs={10} md={8}>
                         <Form />
                     </Grid>
-                    <Grid item className={classes.banner} xs={2} md={4}>
-                        {/* <Box>asdasddsasda</Box> */}
-                    </Grid>
+                    <Grid item className={classes.banner} xs={2} md={4}/>
                 </Grid>
             </Paper>
         </Box>

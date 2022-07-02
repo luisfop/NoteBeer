@@ -3,13 +3,14 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import useStyles from './AppStyle';
+import AppTheme from './container/Apptheme';
 import routes from './routes/routes';
 
 function App() {
 
   const classes = useStyles();
   return (
-    <Box>
+    <AppTheme>
       <Grid container >
         <Box className={classes.container} >
           <BrowserRouter>
@@ -21,7 +22,7 @@ function App() {
           </BrowserRouter>
         </Box>
       </Grid>
-    </Box>
+    </AppTheme>
   );
 }
 
