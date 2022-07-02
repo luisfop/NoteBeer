@@ -10,7 +10,7 @@ function App() {
   const classes = useStyles();
   return (
     <div className={classes.app}>
-      <Box >
+      <Box className={classes.container} >
         <BrowserRouter>
           <Routes>
             {routes.map(({ path, element: Component }) => (
