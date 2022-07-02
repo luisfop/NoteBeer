@@ -1,20 +1,25 @@
+import { Box } from '@mui/material';
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import './App.css';
+import useStyles from './AppStyle';
 import routes from './routes/routes';
 
 function App() {
+
+  const classes = useStyles();
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          {routes.map(({ path, element: Component }) => (
-            <Route key={path} path={path} element={<Component />} />
-          ))}
-        </Routes>
-      </BrowserRouter>
-    </>
+    <div className={classes.app}>
+      <Box >
+        <BrowserRouter>
+          <Routes>
+            {routes.map(({ path, element: Component }) => (
+              <Route key={path} path={path} element={<Component />} />
+            ))}
+          </Routes>
+        </BrowserRouter>
+      </Box>
+    </div>
   );
 }
 
