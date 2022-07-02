@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Box, Paper, Grid } from '@mui/material';
 import useStyles from './HomeStyles';
+import Form from '../../components/Form/Form';
 
 const Home = () => {
     const classes = useStyles();
@@ -9,10 +10,10 @@ const Home = () => {
         <Box className={classes.page}>
             <Paper className={classes.card}>
                 <Grid container className={classes.container}>
-                    <Grid item className={classes.form} xs={12} md={8}>
-                        {/* <Box>DSADSADSA</Box> */}
+                    <Grid item className={classes.form} xs={10} md={8}>
+                        <Form />
                     </Grid>
-                    <Grid item className={classes.banner} xs={12} md={4}>
+                    <Grid item className={classes.banner} xs={2} md={4}>
                         {/* <Box>asdasddsasda</Box> */}
                     </Grid>
                 </Grid>

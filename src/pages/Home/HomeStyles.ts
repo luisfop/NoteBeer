@@ -9,23 +9,24 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
   },
   card: {
-    width: "700px",
+    width: "800px",
     height: "500px",
   },
   container: {
-    minHeight: '100%',
-    width: "inherit",
-    display: "flex"
+    height: '100%',
+    width: "100%",
+    display: "flex",
   },
   form: {
-    height: "inherit",
-    width: "inherit",
+    padding: '10px',
+    height: "100%",
     border: "solid red",
   },
   banner: {
     height: "inherit",
-    width: "inherit",
-    border: "solid blue",
+    // border: "solid blue",
+    background: '#fbbb01',
+
   },
 }));
 
