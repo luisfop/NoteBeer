@@ -11,6 +11,7 @@ const useStyles = makeStyles(() => ({
   card: {
     width: "800px",
     height: "500px",
+    margin: '10px'
   },
   container: {
     height: '100%',
@@ -24,7 +25,6 @@ const useStyles = makeStyles(() => ({
   },
   banner: {
     height: "inherit",
-    // border: "solid blue",
     background: '#fbbb01',
 
   },
