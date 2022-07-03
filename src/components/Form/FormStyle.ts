@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   xablau: {
     color: theme.palette.primary.main,
+    width: '100%',
     
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
