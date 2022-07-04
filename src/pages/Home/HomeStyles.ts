@@ -10,7 +10,7 @@ const useStyles = makeStyles(() => ({
   },
   card: {
     width: "90vw",
-    minHeight: "600px",
+    minHeight: "550px",
     margin: '10px'
   },
   container: {
@@ -24,7 +24,7 @@ const useStyles = makeStyles(() => ({
     width: '100%',
   },
   banner: {
-    minHeight: "500px",
+    minHeight: "550px",
     background: '#fbbb01',
   },
 }));
