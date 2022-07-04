@@ -10,7 +10,7 @@ const useStyles = makeStyles(() => ({
   },
   card: {
     width: "90vw",
-    height: "500px",
+    minHeight: "600px",
     margin: '10px'
   },
   container: {
@@ -21,12 +21,11 @@ const useStyles = makeStyles(() => ({
   form: {
     padding: '10px',
     height: "100%",
-    border: "solid red",
+    width: '100%',
   },
   banner: {
-    height: "inherit",
+    minHeight: "500px",
     background: '#fbbb01',
-
   },
 }));
 
