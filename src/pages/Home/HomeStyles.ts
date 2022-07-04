@@ -21,7 +21,6 @@ const useStyles = makeStyles(() => ({
   form: {
     padding: '10px',
     height: "100%",
-    border: "solid red",
   },
   banner: {
     height: "inherit",
