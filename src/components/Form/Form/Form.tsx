@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react'
-import { Grid, Typography, TextField, Rating, Checkbox, Button, Box, RadioGroup, FormControlLabel, Radio } from '@mui/material'
+import { Grid, Typography, TextField, Rating, Button, Box, RadioGroup, FormControlLabel, Radio } from '@mui/material'
 import useStyles from './FormStyle';
 import SportsBarIcon from '@mui/icons-material/SportsBar';
-import { Color } from '../../container/constants/color'
+import { Color } from '../../../container/constants/color'
 
 export interface BeerSpecs {
     name: string,
