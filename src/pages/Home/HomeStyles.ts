@@ -25,7 +25,8 @@ const useStyles = makeStyles(() => ({
   },
   banner: {
     minHeight: "550px",
-    background: '#fbbb01',
+    // background: '#fbbb01',
+    // border: 'solid lightgreen 5px'
   },
 }));
 
