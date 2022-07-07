@@ -7,7 +7,7 @@ const Banner = () => {
     const classes = useStyles();
     return (
         <Box className={classes.container}>
-            <img src={BeerImage} height="550px" width="100%" />
+            <img src={BeerImage} height="550px" width="100%" className={classes.image} />
         </Box>
     )
 }
