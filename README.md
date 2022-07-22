@@ -1,5 +1,5 @@
 
-# Welcome to Neernote!
+# Welcome to Beernote!
 
 
 
