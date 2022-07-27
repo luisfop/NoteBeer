@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react'
-import { Grid, Typography, TextField, Rating, Button, Box, RadioGroup, FormControlLabel, Radio } from '@mui/material'
+import { Grid, Typography, TextField, Rating, Button, Box, RadioGroup, FormControlLabel, Radio, Alert } from '@mui/material'
 import useStyles from './FormStyle';
 import SportsBarIcon from '@mui/icons-material/SportsBar';
 import { Color } from '../../../container/constants/color'
@@ -16,15 +16,40 @@ export interface BeerSpecs {
 const Form = () => {
 
     const [beerRate, setBeerRate] = useState<BeerSpecs>({} as BeerSpecs);
+    const [xablau, setXablau] = useState<String[]>([]);
+    const [alert, setAlert] = useState(false);
 
     const classes = useStyles();
 
     const submitHandler = () => {
-        console.log('Beer to save ->', beerRate);
+        let erro = valida(beerRate);
 
-        //TODO: add the localStorage handler
+        if (erro.length === 0) {
+            localStorage.setItem('BeerList', JSON.stringify(beerRate));
+        } else {
+            setXablau(erro);
+            setAlert(true);
+        }
+
     }
 
+    function valida(beer: BeerSpecs) {
+        let error: string[] = []
+        if (!beer.name) {
+            error.push('Sem nome')
+        };
+        if (!beer.percentage) {
+            error.push('Adicione a porcentagem')
+        };
+        if (!beer.ibu) {
+            error.push('Adicione o IBU')
+        };
+        if (!beer.nota) {
+            error.push('Adicione a sua nota')
+        };
+
+        return error;
+    };
 
     return (
         <Grid container>
@@ -37,19 +62,19 @@ const Form = () => {
                 <Grid container className={classes.subcontent}>
                     <Grid item className={classes.item} sm={12} md={5}>
                         <Typography>Nome da cerveja</Typography>
-                        <TextField fullWidth variant="outlined" className={classes.input} onChange={(e) => setBeerRate({ ...beerRate, name: e.target.value })} />
+                        <TextField required placeholder="GodsBeer" fullWidth variant="outlined" className={classes.input} onChange={(e) => setBeerRate({ ...beerRate, name: e.target.value })} />
                     </Grid>
                     <Grid item md={1} />
                     <Grid item className={classes.item} sm={12} md={5}>
                         <Typography>Teor alcoolico</Typography>
-                        <TextField fullWidth type="number" variant="outlined" className={classes.input} onChange={(e) => setBeerRate({ ...beerRate, percentage: Number(e.target.value) })} />
+                        <TextField required placeholder="8%" fullWidth variant="outlined" className={classes.input} onChange={(e) => setBeerRate({ ...beerRate, percentage: Number(e.target.value) })} />
                     </Grid>
                 </Grid>
 
                 <Grid container className={classes.subcontent}>
                     <Grid item className={classes.item} sm={12} md={5}>
                         <Typography>IBU</Typography>
-                        <TextField fullWidth variant="outlined" className={classes.input} onChange={(e) => setBeerRate({ ...beerRate, ibu: Number(e.target.value) })} />
+                        <TextField required placeholder="07" fullWidth variant="outlined" className={classes.input} onChange={(e) => setBeerRate({ ...beerRate, ibu: Number(e.target.value) })} />
                     </Grid>
                     <Grid item md={1} />
                     <Grid item className={classes.item} sm={12} md={5}>
@@ -59,7 +84,7 @@ const Form = () => {
                 </Grid>
                 <Typography className={classes.item}>Coloração:</Typography>
                 <Grid container className={classes.subcontent}>
-                    <RadioGroup row onChange={(e) => setBeerRate({ ...beerRate, coloracao: e.target.value as string })}>
+                    <RadioGroup defaultValue="Clara" row onChange={(e) => setBeerRate({ ...beerRate, coloracao: e.target.value as string })}>
                         <Grid item xs={12} md={4}>
                             <FormControlLabel value="Clara" control={<Radio icon={<SportsBarIcon />} checkedIcon={<SportsBarIcon sx={{ color: Color.primaryTheme, }} />} />} label="Clara" />
                         </Grid>
@@ -72,6 +97,7 @@ const Form = () => {
                     </RadioGroup>
                 </Grid>
                 <Button variant="outlined" className={classes.button} onClick={submitHandler}>Salvar</Button>
+                {alert ? <Alert severity="error">{xablau.map(error => <Typography>{error}</Typography> )}</Alert> : null}
             </Box>
         </Grid>
     )

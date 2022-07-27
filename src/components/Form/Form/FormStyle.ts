@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
-    marginBottom: '20px',
+    marginBottom: "20px",
   },
   title: {
     color: theme.palette.primary.main,
@@ -19,21 +19,23 @@ const useStyles = makeStyles((theme) => ({
   },
   item: {
     paddingBottom: "20px",
-    width: '100%',
-    textAlign: 'center'
+    width: "100%",
+    textAlign: "center",
   },
   button: {
     "&.MuiButton-outlined": {
+      border: `${theme.palette.primary.main} solid`,
+      color: `${theme.palette.primary.main}`,
+      "&:hover ": {
+        backgroundColor: `${theme.palette.primary.main}4D`,
         border: `${theme.palette.primary.main} solid`,
-        color: `${theme.palette.primary.main}`,
-        "&:hover ": {
-            backgroundColor: `${theme.palette.primary.main}4D`,
-            border: `${theme.palette.primary.main} solid`,
-          },
-      }
+      },
+    },
   },
   input: {
-    color: theme.palette.primary.main,
+    "& .MuiOutlinedInput-input": {
+      textAlign: "center",
+    },
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
         borderColor: `${theme.palette.primary.main}`,
