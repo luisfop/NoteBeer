@@ -16,36 +16,36 @@ export interface BeerSpecs {
 const Form = () => {
 
     const [beerRate, setBeerRate] = useState<BeerSpecs>({} as BeerSpecs);
-    const [xablau, setXablau] = useState<String[]>([]);
+    const [errors, setErrors] = useState<String[]>([]);
     const [alert, setAlert] = useState(false);
 
     const classes = useStyles();
 
     const submitHandler = () => {
-        let erro = valida(beerRate);
+        let erro = validate(beerRate);
 
         if (erro.length === 0) {
+            setAlert(false);
             localStorage.setItem('BeerList', JSON.stringify(beerRate));
         } else {
-            setXablau(erro);
+            setErrors(erro);
             setAlert(true);
         }
-
     }
 
-    function valida(beer: BeerSpecs) {
+    function validate(beer: BeerSpecs) {
         let error: string[] = []
         if (!beer.name) {
-            error.push('Sem nome')
+            error.push(' *nome* ')
         };
         if (!beer.percentage) {
-            error.push('Adicione a porcentagem')
+            error.push(' *porcentagem* ')
         };
         if (!beer.ibu) {
-            error.push('Adicione o IBU')
+            error.push(' *IBU* ')
         };
         if (!beer.nota) {
-            error.push('Adicione a sua nota')
+            error.push(' *nota* ')
         };
 
         return error;
@@ -79,7 +79,7 @@ const Form = () => {
                     <Grid item md={1} />
                     <Grid item className={classes.item} sm={12} md={5}>
                         <Typography style={{ paddingTop: '20px' }}>Nota</Typography>
-                        <Rating name="half-rating" defaultValue={2.5} precision={0.5} className={classes.input} onChange={(_, nota) => setBeerRate({ ...beerRate, nota: nota || 0 })} />
+                        <Rating name="half-rating" defaultValue={0} precision={0.5} className={classes.input} onChange={(_, nota) => setBeerRate({ ...beerRate, nota: nota || 0 })} />
                     </Grid>
                 </Grid>
                 <Typography className={classes.item}>Coloração:</Typography>
@@ -97,7 +97,7 @@ const Form = () => {
                     </RadioGroup>
                 </Grid>
                 <Button variant="outlined" className={classes.button} onClick={submitHandler}>Salvar</Button>
-                {alert ? <Alert severity="error">{xablau.map(error => <Typography>{error}</Typography> )}</Alert> : null}
+                {alert ? <Alert severity="error"><Typography fontWeight="bold">Por favor, preencha os campos:</Typography> {errors.map(erro => erro)}</Alert> : null}
             </Box>
         </Grid>
     )
