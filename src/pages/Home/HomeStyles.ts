@@ -1,17 +1,20 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   page: {
     display: "flex",
     height: "inherit",
     width: "inherit",
     justifyContent: "center",
     alignItems: "center",
+    [theme.breakpoints.down('sm')]: {
+      height: 'unset'
+  },
   },
   card: {
     width: "90vw",
     minHeight: "550px",
-    margin: '10px'
+    margin: '10px',
   },
   container: {
     height: '100%',
@@ -26,7 +29,6 @@ const useStyles = makeStyles(() => ({
   banner: {
     minHeight: "550px",
     background: '#fbbb01',
-    // border: 'solid lightgreen 5px'
   },
 }));
 

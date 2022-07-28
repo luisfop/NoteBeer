@@ -6,6 +6,7 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: '0px',
     },
     image: {
+        height: '100%',
         [theme.breakpoints.down('md')]: {
             display: 'none',
             background: 'black'
