@@ -6,7 +6,7 @@
   
 
 This is Beernote, it was created for study purposes, and of course, to save the beers I enjoy the most. The application is a SPA ( single page application).
-I used a simple locastorage as I am studing and practicing, but can easily be implemented a BFF ( backend for frontend ) such as firebase to store data. For the development of the app, I used ReactJs,and material-ui library.
+I used a simple locastorage as I am studing and practicing, but can easily be implemented a BFF ( backend for frontend ) such as firebase to store data. For the development of the app, I used ReactJs,and material-UI component library.
 
 
 
